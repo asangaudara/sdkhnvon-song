@@ -39,7 +39,7 @@ async def song(client, message):
     if duration > 3600:
         await status.edit(f"**Songs Longer than** `1 Hour` **are not Allowed**") 
         return ""
-    url_data = urlparse(f"{yt}")
+    url_data = urlparse(f"{video_link}")
     asanga =(url_data.query[2::])
     urllib.request.urlretrieve(f"https://img.youtube.com/vi/{asanga}/mqdefault.jpg", f"{message.message_id}.jpg")
     thambmail =(f"{message.message_id}.jpg")
