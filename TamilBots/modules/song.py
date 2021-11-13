@@ -52,7 +52,7 @@ async def song(client, message):
         LOGGER.error(ex)
         return ""
     rename = os.rename(download, f"{str(yt.title)}.mp3")
-    cap = f"🏷 **Title**: `{str(yt.title)[:40]}`\n{video_link}🎧 By **AleXa OweNs** "
+    cap = f"🏷 **Title**: `{str(yt.title)[:40]}`\n🎧 By **AleXa OweNs** "
     await app.send_chat_action(message.chat.id, "upload_audio")
     await app.send_audio(
         chat_id=message.chat.id,
@@ -65,3 +65,4 @@ async def song(client, message):
         caption=cap)
     await status.delete()
     os.remove(f"{str(yt.title)}.mp3")
+    os.remove(f"{message.message_id}.jpg")
