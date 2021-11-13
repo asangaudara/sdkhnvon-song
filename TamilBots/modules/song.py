@@ -21,7 +21,6 @@ def yt_search(song):
 asanga = "thumb.jpg"
 @app.on_message(filters.command("song"))
 async def song(client, message):
-    chat_id = message.chat.id
     user_id = message.from_user["id"]
     args = get_arg(message) + " " + "song"
     if args.startswith(" "):
