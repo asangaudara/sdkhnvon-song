@@ -5,9 +5,7 @@ from pytube import YouTube
 from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import InlineKeyboardButton
 from youtubesearchpython import VideosSearch
-from TamilBots.TamilBots import ignore_blacklisted_users, get_arg
 from TamilBots import app, LOGGER
-from TamilBots.sql.chat_sql import add_chat_to_db
 ## Extra Fns
 
 def yt_search(song):
@@ -25,7 +23,6 @@ asanga = "thumb.jpg"
 async def song(client, message):
     chat_id = message.chat.id
     user_id = message.from_user["id"]
-    add_chat_to_db(str(chat_id))
     args = get_arg(message) + " " + "song"
     if args.startswith(" "):
         await message.reply("Enter a song name. Check /help")
