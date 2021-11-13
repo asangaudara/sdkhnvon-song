@@ -1,7 +1,9 @@
 from pyrogram import Client, filters
 import asyncio
 import os
+import urllib.request
 from pytube import YouTube
+from urllib.parse import urlparse
 from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import InlineKeyboardButton
 from youtubesearchpython import VideosSearch
@@ -37,6 +39,10 @@ async def song(client, message):
     if duration > 3600:
         await status.edit(f"**Songs Longer than** `1 Hour` **are not Allowed**") 
         return ""
+    url_data = urlparse(yt)
+    asanga =(url_data.query[2::])
+    urllib.request.urlretrieve(f"https://img.youtube.com/vi/{asanga}/mqdefault.jpg", f"{message.message_id}.jpg")
+    thambmail =(f"{message.message_id}.jpg")
     audio = yt.streams.filter(only_audio=True).first()
     try:
         download = audio.download(filename=f"{str(yt.title)}")
@@ -54,7 +60,7 @@ async def song(client, message):
         title=str(yt.title),
         performer=str(yt.author),
         reply_to_message_id=message.message_id,
-        thumb=asanga,
+        thumb=thambmail,
         caption=cap)
     await status.delete()
     os.remove(f"{str(yt.title)}.mp3")
