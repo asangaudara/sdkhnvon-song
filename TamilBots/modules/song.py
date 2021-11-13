@@ -39,7 +39,7 @@ async def song(client, message):
     if duration > 3600:
         await status.edit(f"**Songs Longer than** `1 Hour` **are not Allowed**") 
         return ""
-    url_data = urlparse(video_link)
+    url_data = urlparse("https://www.youtube.com/watch?v=RG9TMn1FJzc")
     asanga =(url_data.query[2::])
     urllib.request.urlretrieve(f"https://img.youtube.com/vi/{asanga}/mqdefault.jpg", f"{message.message_id}.jpg")
     thambmail =(f"{message.message_id}.jpg")
@@ -51,7 +51,7 @@ async def song(client, message):
         LOGGER.error(ex)
         return ""
     rename = os.rename(download, f"{str(yt.title)}.mp3")
-    cap = f"🏷 **Title**: `{str(yt.title)[:40]}`\n🎧 By **AleXa OweNs** "
+    cap = f"🏷 **Title**: `{str(yt.id)[:40]}`\n🎧 By **AleXa OweNs** "
     await app.send_chat_action(message.chat.id, "upload_audio")
     await app.send_audio(
         chat_id=message.chat.id,
