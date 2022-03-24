@@ -22,7 +22,7 @@ def yt_search(song):
         return url
 
 asanga = "thumb.jpg"
-@app.on_message(filters.command("song"))
+@app.on_message(filters.command("sg"))
 async def song(client, message):
     user_id = message.from_user["id"]
     args = get_arg(message) + " " + "song"
