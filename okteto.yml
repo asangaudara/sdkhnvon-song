@@ -1,0 +1,10 @@
+name: sdkhnvon-song
+image: okteto/hello-world:php-dev
+workdir: /app
+command: [ "python3", "main.py"]
+forward: 
+  - 8080:8080
+reverse:
+  - 9000:9000
+persistentVolume:
+  enabled: false
