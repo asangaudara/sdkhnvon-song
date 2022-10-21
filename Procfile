@@ -1,1 +1,1 @@
-worker: python3 -m TamilBots
+python3 -m TamilBots
