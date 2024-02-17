@@ -1,6 +1,6 @@
 import os
-API_ID = int(os.getenv("API_ID"))
-API_HASH = os.getenv("API_HASH")
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-DATABASE_URL = os.getenv("DATABASE_URL")
-OWNER_ID = list({int(x) for x in os.environ.get("OWNER_ID", "").split()})
+API_ID = "2356749"
+API_HASH = "7357510542d8c5b4beb0c5c577fadaf9"
+BOT_TOKEN = "2086470068:AAHJNAX33Awgc1_zw-LXYPcXfGaP7XqPoBE"
+DATABASE_URL = "efsfsdsfa"
+OWNER_ID = "1149011555"
